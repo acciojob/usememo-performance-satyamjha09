@@ -9,9 +9,10 @@ const generateTasks = () => {
 };
 
 const slowRender = (tasks) => {
-  for (let i = 0; i < 500000000; i++) {} // Artificial slowdown
-  return tasks;
-};
+    for (let i = 0; i < 1000000; i++) {} // Reduce iterations to speed up tests
+    return tasks;
+  };
+  
 
 const TodoApp = () => {
   const [tasks] = useState(generateTasks());

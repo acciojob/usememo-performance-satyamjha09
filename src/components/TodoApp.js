@@ -1,23 +1,24 @@
 import React, { useState, useMemo } from "react";
 
-const generateTasks = () => {
-  return Array.from({ length: 50 }, (_, i) => ({
-    id: i + 1,
-    text: `Task ${i + 1}`,
-    completed: i < 25, // First 25 tasks are completed, rest are active
-  }));
-};
+    const generateTasks = () => {
+    return Array.from({ length: 50 }, (_, i) => ({
+        id: i + 1,
+        text: `Task ${i + 1}`,
+        completed: i < 25, // First 25 tasks are completed, rest are active
+    }));
+    };
 
-const slowRender = (tasks) => {
-    for (let i = 0; i < 1000000; i++) {} // Reduce iterations to speed up tests
-    return tasks;
-  };
+
+    const slowRender = (tasks) => {
+        for (let i = 0; i < 100000; i++) {} // Reduce iterations
+        return tasks;
+    };
   
 
-const TodoApp = () => {
-  const [tasks] = useState(generateTasks());
-  const [filter, setFilter] = useState("all");
-  const [darkMode, setDarkMode] = useState(false);
+    const TodoApp = () => {
+     const [tasks] = useState(generateTasks());
+    const [filter, setFilter] = useState("all");
+    const [darkMode, setDarkMode] = useState(false);
 
   const filteredTasks = useMemo(() => {
     console.log("Filtering tasks...");
